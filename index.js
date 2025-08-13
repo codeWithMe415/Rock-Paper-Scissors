@@ -30,7 +30,6 @@ function getComputerChoice() {
         return 'Error'
     }
 }
-// test
 userOption(userChoice);
 console.log(getComputerChoice());
 // Logic for game rounds
