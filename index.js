@@ -1,62 +1,91 @@
-// This will prompt the user for their choice of Rock, Paper, Scissors.
-let userChoice = prompt('Please select either, Rock, Paper, or Scissors');
-const usersPick = userChoice.toLowerCase(); // stores users choice of rock, paper, scissor and stores it lowercased
+/*  TODO: If user gives an invalid selection, game stops and user has to input their choice again. Add a counter for
+  draws
+*/
 
-function userOption() {
-    if (usersPick === 'rock') {
-        console.log('You: rock');
-    } else if (usersPick === 'paper') {
-        console.log('You: paper');
-    } else if (usersPick === 'scissors') {
-        console.log('You: scissors');
-    } else {
-        console.log('Invalid input, please select a valid option.');
-        return null;
-    }
-
-}
-
-// Computer choice generation
-let computerRandomNumber = Math.floor(Math.random() * 3);
-
-function getComputerChoice() {
-    if (computerRandomNumber === 0) {
-        return 'Computer: rock';
-    } else if (computerRandomNumber === 1) {
-        return 'Computer: paper';
-    } else if (computerRandomNumber === 2) {
-        return 'Computer: scissors';
-    } else {
-        return 'Error'
-    }
-}
-userOption(userChoice);
-console.log(getComputerChoice());
-// Logic for game rounds
 let totalGameRounds = 5;
-let userGameScore = 0;
-let computerGameScore = 0;
+let userScore = 0;
+let computerScore = 0;
 
-for (let currentGameRound = 1; currentGameRound <= totalGameRounds; currentGameRound++) {
-    if (usersPick === 'rock' && computerRandomNumber === 0) {
-        console.log('Tie')
-    } else if (usersPick === 'rock' && computerRandomNumber === 1) {
-        console.log('You lose'), computerGameScore += 1;
-    } else if (usersPick === 'rock' && computerRandomNumber === 2) {
-        console.log('You win!'), userGameScore += 1;
-    } else if (usersPick === 'paper' && computerRandomNumber === 0) {
-        console.log('You win!'), userGameScore += 1;
-    } else if (usersPick === 'paper' && computerRandomNumber === 1) {
-        console.log('Tie')
-    } else if (usersPick === 'scissors' && computerRandomNumber === 2) {
-        console.log('You lose'), computerGameScore += 1;
-    } else if (usersPick === 'scissors' && computerRandomNumber === 0) {
-        console.log('You lose'), computerGameScore += 1;
-    } else if (usersPick === 'scissors' && computerRandomNumber === 1) {
-        console.log('You win!'), userGameScore += 1;
-    } else if (usersPick === 'scissors' && computerRandomNumber === 2) {
-        console.log('Tie')
+for (let currentGame = 1; currentGame <= 5; currentGame++) {
+    console.log(`\nCurrent Game: --- ${currentGame} ---`);
+    // This lets use get a new user choice each round
+    let promptUser = prompt('Please select either, rock, paper or scissors');
+    let usersChoice = promptUser.toLowerCase();
+
+    // Generates new computer choice each round
+    let computerRandomNumber = Math.floor(Math.random() * 3);
+
+    function usersOption() {
+        if (usersChoice === 'rock') {
+            console.log('You selected: Rock');
+        } else if (usersChoice === 'paper') {
+            console.log('You selected: Paper');
+        } else if (usersChoice === 'scissors') {
+            console.log('You selected: Scissors');
+        } else {
+            console.log('Error. Invalid input, please try again');
+        }
     }
-    // Game logic will go here
+
+    function getComputerChoice() {
+        if (computerRandomNumber === 0) {
+            return 'Computer selected: Rock';
+            let compAnswer = 'Rock'
+        } else if (computerRandomNumber === 1) {
+            return 'Computer selected: Paper';
+            let compAnswer = 'Paper'
+        } else if (computerRandomNumber === 2) {
+            return 'Computer selected: Scissors';
+            let compAnswer = 'Scissors'
+        }
+    }
+
+    usersOption();
+    console.log(getComputerChoice());
+
+    if (usersChoice === 'rock' && computerRandomNumber === 0) {
+        console.log('It\'s a tie');
+        alert('It\'s a tie! Computer selected: Rock');
+    } else if (usersChoice === 'rock' && computerRandomNumber === 1) {
+        console.log('Sorry, you lose!');
+        alert('You lost! Computer selected: Paper');
+        computerScore += 1;
+    } else if (usersChoice === 'rock' && computerRandomNumber === 2) {
+        console.log('Hell yeah, you won this one!');
+        alert('You won! Computer selected: Scissors');
+        userScore += 1;
+    } else if (usersChoice === 'paper' && computerRandomNumber === 0) {
+        console.log('Sorry, you lose!');
+        alert('You lost! Computer selected: Scissors');
+        computerScore += 1;
+    } else if (usersChoice === 'paper' && computerRandomNumber === 1) {
+        console.log('It\'s a tie');
+        alert('It\'s a tie! Computer selected: Paper');
+    } else if (usersChoice === 'paper' && computerRandomNumber === 2) {
+        console.log('Hell yeah, you won this one!');
+        alert('You won! Computer selected: Rock');
+        userScore += 1;
+    } else if (usersChoice === 'scissors' && computerRandomNumber === 0) {
+        console.log('Sorry, you lose!');
+        alert('You lost! Computer selected: Rock')
+        computerScore += 1;
+    } else if (usersChoice === 'scissors' && computerRandomNumber === 1) {
+        console.log('Hell yeah, you won this one!');
+        alert('You won! Computer selected: Paper');
+        userScore += 1;
+    } else if (usersChoice === 'scissors' && computerRandomNumber === 2) {
+        console.log('It\'s a tie');
+        alert('It\'s a tie! Computer selected: Scissors');
+    }
+    console.log(`--- Current Score ---\n You: ${userScore}\n Computer: ${computerScore}`);
 }
 
+console.log(`\nFinal Score - You: ${userScore}, Computer: ${computerScore}`);
+if (userScore > computerScore) {
+    console.log('You won the game!')
+    alert('You won the game!');
+} else if (userScore < computerScore) {
+    console.log('You lost.. Better luck next time!')
+} else {
+    console.log('And it ends in a tie... How anticlimactic.')
+}
