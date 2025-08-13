@@ -5,6 +5,7 @@
 let totalGameRounds = 5;
 let userScore = 0;
 let computerScore = 0;
+let drawCount = 0;
 
 for (let currentGame = 1; currentGame <= 5; currentGame++) {
     console.log(`\nCurrent Game: --- ${currentGame} ---`);
@@ -30,13 +31,13 @@ for (let currentGame = 1; currentGame <= 5; currentGame++) {
     function getComputerChoice() {
         if (computerRandomNumber === 0) {
             return 'Computer selected: Rock';
-            let compAnswer = 'Rock'
+            let compAnswer = 'Rock';
         } else if (computerRandomNumber === 1) {
             return 'Computer selected: Paper';
-            let compAnswer = 'Paper'
+            let compAnswer = 'Paper';
         } else if (computerRandomNumber === 2) {
             return 'Computer selected: Scissors';
-            let compAnswer = 'Scissors'
+            let compAnswer = 'Scissors';
         }
     }
 
@@ -46,6 +47,7 @@ for (let currentGame = 1; currentGame <= 5; currentGame++) {
     if (usersChoice === 'rock' && computerRandomNumber === 0) {
         console.log('It\'s a tie');
         alert('It\'s a tie! Computer selected: Rock');
+        drawCount += 1;
     } else if (usersChoice === 'rock' && computerRandomNumber === 1) {
         console.log('Sorry, you lose!');
         alert('You lost! Computer selected: Paper');
@@ -61,13 +63,14 @@ for (let currentGame = 1; currentGame <= 5; currentGame++) {
     } else if (usersChoice === 'paper' && computerRandomNumber === 1) {
         console.log('It\'s a tie');
         alert('It\'s a tie! Computer selected: Paper');
+        drawCount += 1;
     } else if (usersChoice === 'paper' && computerRandomNumber === 2) {
         console.log('Hell yeah, you won this one!');
         alert('You won! Computer selected: Rock');
         userScore += 1;
     } else if (usersChoice === 'scissors' && computerRandomNumber === 0) {
         console.log('Sorry, you lose!');
-        alert('You lost! Computer selected: Rock')
+        alert('You lost! Computer selected: Rock');
         computerScore += 1;
     } else if (usersChoice === 'scissors' && computerRandomNumber === 1) {
         console.log('Hell yeah, you won this one!');
@@ -76,16 +79,17 @@ for (let currentGame = 1; currentGame <= 5; currentGame++) {
     } else if (usersChoice === 'scissors' && computerRandomNumber === 2) {
         console.log('It\'s a tie');
         alert('It\'s a tie! Computer selected: Scissors');
+        drawCount += 1;
     }
-    console.log(`--- Current Score ---\n You: ${userScore}\n Computer: ${computerScore}`);
+    console.log(`--- Current Score ---\n You: ${userScore}\n Computer: ${computerScore}\n Draws: ${drawCount}\n`);
 }
 
-console.log(`\nFinal Score - You: ${userScore}, Computer: ${computerScore}`);
+console.log(`\nFinal Score - You: ${userScore}, Computer: ${computerScore}, Draws: ${drawCount}`);
 if (userScore > computerScore) {
-    console.log('You won the game!')
+    console.log('You won the game!');
     alert('You won the game!');
 } else if (userScore < computerScore) {
-    console.log('You lost.. Better luck next time!')
+    console.log('You lost.. Better luck next time!');
 } else {
-    console.log('And it ends in a tie... How anticlimactic.')
+    console.log('And it ends in a tie... How anticlimactic.');
 }
