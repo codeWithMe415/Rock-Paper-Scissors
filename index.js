@@ -7,7 +7,7 @@ let userScore = 0;
 let computerScore = 0;
 let drawCount = 0;
 
-for (let currentGame = 1; currentGame <= 5; currentGame++) {
+for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
     console.log(`\nCurrent Game: --- ${currentGame} ---`);
     // This lets use get a new user choice each round
     let promptUser = prompt('Please select either, rock, paper or scissors');
@@ -31,13 +31,10 @@ for (let currentGame = 1; currentGame <= 5; currentGame++) {
     function getComputerChoice() {
         if (computerRandomNumber === 0) {
             return 'Computer selected: Rock';
-            let compAnswer = 'Rock';
         } else if (computerRandomNumber === 1) {
             return 'Computer selected: Paper';
-            let compAnswer = 'Paper';
         } else if (computerRandomNumber === 2) {
             return 'Computer selected: Scissors';
-            let compAnswer = 'Scissors';
         }
     }
 
