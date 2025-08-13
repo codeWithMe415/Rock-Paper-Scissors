@@ -27,7 +27,7 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
             console.log('Error. Invalid input, please try again');
         }
     }
-
+//Translates computers choice to either rock, paper or scissors
     function getComputerChoice() {
         if (computerRandomNumber === 0) {
             return 'Computer selected: Rock';
@@ -40,6 +40,7 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
 
     usersOption();
     console.log(getComputerChoice());
+// Game logic for human vs computer choices.
 
     if (usersChoice === 'rock' && computerRandomNumber === 0) {
         console.log('It\'s a tie');
