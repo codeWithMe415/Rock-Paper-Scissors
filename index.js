@@ -10,10 +10,16 @@ let drawCount = 0;
 for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
     console.log(`\nCurrent Game: --- ${currentGame} ---`);
     // This lets use get a new user choice each round
-    let promptUser = prompt('Please select either, rock, paper or scissors');
-    let usersChoice = promptUser.toLowerCase();
+    let usersChoice;
+    do {
+        let promptUser = prompt('Please select either: rock, paper or scissors');
+        usersChoice = promptUser ? promptUser.toLowerCase() : '';
+        if (!['rock', 'paper', 'scissors'].includes(usersChoice)) {
+            alert('Invalid input! Please enter rock, paper, or scissors.');
+        }
+    } while (!['rock', 'paper', 'scissors'].includes(usersChoice));
 
-    // Generates new computer choice each round
+    // Generates a new computer choice each round
     let computerRandomNumber = Math.floor(Math.random() * 3);
 
     function usersOption() {
@@ -27,7 +33,8 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
             console.log('Error. Invalid input, please try again');
         }
     }
-//Translates computers choice to either rock, paper or scissors
+
+//Translates the computer choice to either rock, paper or scissors
     function getComputerChoice() {
         if (computerRandomNumber === 0) {
             return 'Computer selected: Rock';
@@ -40,8 +47,8 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
 
     usersOption();
     console.log(getComputerChoice());
-// Game logic for human vs computer choices.
-
+// Game logic for human vs. computer choices.
+// 0 = Rock, 1 = Paper, 2 = Scissors 
     if (usersChoice === 'rock' && computerRandomNumber === 0) {
         console.log('It\'s a tie');
         alert('It\'s a tie! Computer selected: Rock');
@@ -55,17 +62,17 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
         alert('You won! Computer selected: Scissors');
         userScore += 1;
     } else if (usersChoice === 'paper' && computerRandomNumber === 0) {
-        console.log('Sorry, you lose!');
-        alert('You lost! Computer selected: Scissors');
-        computerScore += 1;
+        console.log('Hell yeah, you won this one!');
+        alert('You lost! Computer selected: Rock');
+        userScore += 1;
     } else if (usersChoice === 'paper' && computerRandomNumber === 1) {
         console.log('It\'s a tie');
         alert('It\'s a tie! Computer selected: Paper');
         drawCount += 1;
     } else if (usersChoice === 'paper' && computerRandomNumber === 2) {
-        console.log('Hell yeah, you won this one!');
-        alert('You won! Computer selected: Rock');
-        userScore += 1;
+        console.log('Sorry, you lose!');
+        alert('You lost! Computer selected: Scissors');
+        computerScore += 1;
     } else if (usersChoice === 'scissors' && computerRandomNumber === 0) {
         console.log('Sorry, you lose!');
         alert('You lost! Computer selected: Rock');
@@ -88,6 +95,9 @@ if (userScore > computerScore) {
     alert('You won the game!');
 } else if (userScore < computerScore) {
     console.log('You lost.. Better luck next time!');
+    alert('You lost.. Better luck next time!');
 } else {
     console.log('And it ends in a tie... How anticlimactic.');
+    alert('And it ends in a tie... How anticlimactic.');
+
 }
