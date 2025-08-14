@@ -86,7 +86,7 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
         alert('It\'s a tie! Computer selected: Scissors');
         drawCount += 1;
     }
-    console.log(`--- Current Score ---\n You: ${userScore}\n Computer: ${computerScore}\n Draws: ${drawCount}\n`);
+    console.log(`\n--- Current Score ---\n You: ${userScore}\n Computer: ${computerScore}\n Draws: ${drawCount}\n`);
 }
 
 console.log(`\nFinal Score - You: ${userScore}, Computer: ${computerScore}, Draws: ${drawCount}`);
@@ -99,5 +99,4 @@ if (userScore > computerScore) {
 } else {
     console.log('And it ends in a tie... How anticlimactic.');
     alert('And it ends in a tie... How anticlimactic.');
-
 }
