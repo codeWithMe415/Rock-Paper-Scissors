@@ -24,13 +24,13 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
 
     function usersOption() {
         if (usersChoice === 'rock') {
-            console.log('You selected: Rock');
+            console.log('\nYou selected: Rock');
         } else if (usersChoice === 'paper') {
-            console.log('You selected: Paper');
+            console.log('\nYou selected: Paper');
         } else if (usersChoice === 'scissors') {
-            console.log('You selected: Scissors');
+            console.log('\nYou selected: Scissors');
         } else {
-            console.log('Error. Invalid input, please try again');
+            console.log('\nError. Invalid input, please try again');
         }
     }
 
@@ -50,39 +50,39 @@ for (let currentGame = 1; currentGame <= totalGameRounds; currentGame++) {
 // Game logic for human vs. computer choices.
 // 0 = Rock, 1 = Paper, 2 = Scissors 
     if (usersChoice === 'rock' && computerRandomNumber === 0) {
-        console.log('It\'s a tie');
+        console.log('\nIt\'s a tie');
         alert('It\'s a tie! Computer selected: Rock');
         drawCount += 1;
     } else if (usersChoice === 'rock' && computerRandomNumber === 1) {
-        console.log('Sorry, you lose!');
+        console.log('\nSorry, you lose!');
         alert('You lost! Computer selected: Paper');
         computerScore += 1;
     } else if (usersChoice === 'rock' && computerRandomNumber === 2) {
-        console.log('Hell yeah, you won this one!');
+        console.log('\nHell yeah, you won this one!');
         alert('You won! Computer selected: Scissors');
         userScore += 1;
     } else if (usersChoice === 'paper' && computerRandomNumber === 0) {
-        console.log('Hell yeah, you won this one!');
+        console.log('\nHell yeah, you won this one!');
         alert('You lost! Computer selected: Rock');
         userScore += 1;
     } else if (usersChoice === 'paper' && computerRandomNumber === 1) {
-        console.log('It\'s a tie');
+        console.log('\nIt\'s a tie');
         alert('It\'s a tie! Computer selected: Paper');
         drawCount += 1;
     } else if (usersChoice === 'paper' && computerRandomNumber === 2) {
-        console.log('Sorry, you lose!');
+        console.log('\nSorry, you lose!');
         alert('You lost! Computer selected: Scissors');
         computerScore += 1;
     } else if (usersChoice === 'scissors' && computerRandomNumber === 0) {
-        console.log('Sorry, you lose!');
+        console.log('\nSorry, you lose!');
         alert('You lost! Computer selected: Rock');
         computerScore += 1;
     } else if (usersChoice === 'scissors' && computerRandomNumber === 1) {
-        console.log('Hell yeah, you won this one!');
+        console.log('\nHell yeah, you won this one!');
         alert('You won! Computer selected: Paper');
         userScore += 1;
     } else if (usersChoice === 'scissors' && computerRandomNumber === 2) {
-        console.log('It\'s a tie');
+        console.log('\nIt\'s a tie');
         alert('It\'s a tie! Computer selected: Scissors');
         drawCount += 1;
     }
